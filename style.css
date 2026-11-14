@@ -1618,3 +1618,8 @@ footer {
 #details[hidden] {
   display: none !important;
 }
+
+/* Fix hidden elements */
+[hidden] {
+  display: none !important;
+}
