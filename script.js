@@ -294,8 +294,7 @@ document.querySelectorAll(".src").forEach(b => {
         $("sender-wrap").hidden = false;
 
         build();
-        updateWalletDial();
-
+        showWalletChoice();
         $("sender").focus({ preventScroll: true });
     });
 });
@@ -348,18 +347,36 @@ const WALLET_USSD = {
     }
 };
 
-function updateWalletDial() {
-    const panel = $("wallet-dial");
-    if (!panel) return;
 
+/* ===== Wallet quick transfer ===== */
+
+const walletChoice = $("wallet-choice");
+const walletDial = $("wallet-dial");
+
+const isWallet = () =>
+    ["vodafone", "etisalat", "orange"].includes(source);
+
+function hideWalletPanels() {
+    walletChoice.hidden = true;
+    walletDial.hidden = true;
+}
+
+function showWalletChoice() {
+    hideWalletPanels();
+
+    // InstaPay: لا نعرض التحويل السريع
+    if (!isWallet()) return;
+
+    walletChoice.hidden = false;
+}
+
+function updateWalletDial() {
     const wallet = WALLET_USSD[source];
 
-    if (!wallet) {
-        panel.hidden = true;
+    if (!wallet || !isWallet()) {
+        walletDial.hidden = true;
         return;
     }
-
-    panel.hidden = false;
 
     const amount = toEn($("amount").value.trim());
     const recipient = CONFIG.vodafone.number.replace(/\D/g, "");
@@ -379,7 +396,22 @@ function updateWalletDial() {
         "tel:" + wallet.code.replace(/#/g, "%23");
 }
 
+$("wallet-yes").addEventListener("click", () => {
+    if (!isWallet()) return;
+
+    walletChoice.hidden = true;
+    walletDial.hidden = false;
+
+    updateWalletDial();
+});
+
+$("wallet-no").addEventListener("click", hideWalletPanels);
+
+$("wallet-cancel").addEventListener("click", hideWalletPanels);
+
 $("amount").addEventListener("input", updateWalletDial);
+
+
 
 /* ===== تحديث بيانات الدفع ===== */
 ["amount", "sender"].forEach(id => {

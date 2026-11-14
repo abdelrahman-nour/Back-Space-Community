@@ -154,20 +154,49 @@
           </div>
 
           <!-- Optional wallet dialing helper; payment confirmation stays in the carrier interface. -->
-          <div class="field" id="wallet-dial" hidden>
-            <div style="padding:16px;border:1px solid rgba(255,255,255,.2);border-radius:14px;display:grid;gap:10px">
-              <strong>تحويل سريع من محفظتك</strong>
-              <p class="note" id="dial-info" style="margin:0"></p>
-              <div dir="ltr" id="dial-code"
-                style="font-family:monospace;direction:ltr;unicode-bidi:isolate;text-align:center;overflow-wrap:anywhere;font-size:1.12rem"
-                aria-live="polite"></div>
-              <p class="note" id="dial-details" style="margin:0"></p>
-              <a class="key wa" id="dial-open" href="#" style="text-align:center;justify-content:center">افتح كود
-                التحويل على الموبايل</a>
-              <p class="note" style="margin:0">استخدم الخط المرتبط بالمحفظة. الرقم السري بيتكتب في شاشة شركة المحمول
-                فقط، مش هنا. راجع البيانات وأكّد بنفسك.</p>
+
+          <!-- Quick Transfer -->
+          <div class="field" id="wallet-choice" hidden>
+            <div class="wallet-box">
+              <div class="wallet-heading">⚡ تحب تحوّل بشكل أسرع؟</div>
+              <p class="note">
+                نقدر نفتحلك كود التحويل على موبايلك مباشرة.
+                أو تكمّل بالطريقة العادية.
+              </p>
+
+              <div class="wallet-actions">
+                <button class="key wallet-yes" type="button" id="wallet-yes">
+                  ✓ موافق
+                </button>
+                <button class="key wallet-no" type="button" id="wallet-no">
+                  مش دلوقتي
+                </button>
+              </div>
             </div>
           </div>
+
+          <div class="field" id="wallet-dial" hidden>
+            <div class="wallet-box">
+              <div class="wallet-heading">⚡ التحويل السريع</div>
+              <p class="note" id="dial-info"></p>
+              <div id="dial-code" dir="ltr" class="wallet-code"></div>
+              <p class="note" id="dial-details"></p>
+
+              <a class="key wallet-open" id="dial-open" href="#">
+                افتح كود التحويل على الموبايل
+              </a>
+
+              <button class="wallet-cancel" id="wallet-cancel" type="button">
+                ✕ إلغاء التحويل السريع
+              </button>
+
+              <p class="note">
+                الرقم السري بيتكتب في شاشة شركة المحمول فقط.
+                راجع البيانات وأكّد بنفسك.
+              </p>
+            </div>
+          </div>
+
 
           <div class="field" id="sender-wrap" hidden>
             <label for="sender" id="sender-label">رقم المحفظة اللي حوّلت منها</label>
