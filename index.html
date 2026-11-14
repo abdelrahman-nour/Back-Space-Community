@@ -1,258 +1,378 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#0e0e10" />
+    <title>Backspace | الدفع</title>
+    <link rel="icon" href="assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap"
+    />
+    <link rel="stylesheet" href="./style.css?v=3" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#0e0e10" />
-  <title>Backspace | الدفع</title>
-  <link rel="icon" href="assets/logo.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" />
-  <link rel="stylesheet" href="./style.css?v=2" />
-</head>
-
-<body>
-  <!--BODY-START-->
-  <div class="bg" aria-hidden="true">
-    <span class="blob b1"></span>
-    <span class="blob b2"></span>
-    <div class="grid"></div>
-    <div class="floaters">
-      <span style="left: 6%; --s: 44px; --d: 22s; --dl: -4s">⌫</span>
-      <span style="left: 22%; --s: 34px; --d: 28s; --dl: -15s">B</span>
-      <span style="left: 44%; --s: 30px; --d: 25s; --dl: -9s">↵</span>
-      <span style="left: 63%; --s: 40px; --d: 30s; --dl: -20s">S</span>
-      <span style="left: 80%; --s: 36px; --d: 24s; --dl: -2s">⌫</span>
-      <span style="left: 90%; --s: 28px; --d: 32s; --dl: -26s">K</span>
+  <body>
+    <!--BODY-START-->
+    <div class="bg" aria-hidden="true">
+      <span class="blob b1"></span>
+      <span class="blob b2"></span>
+      <div class="grid"></div>
+      <div class="floaters">
+        <span style="left: 6%; --s: 44px; --d: 22s; --dl: -4s">⌫</span>
+        <span style="left: 22%; --s: 34px; --d: 28s; --dl: -15s">B</span>
+        <span style="left: 44%; --s: 30px; --d: 25s; --dl: -9s">↵</span>
+        <span style="left: 63%; --s: 40px; --d: 30s; --dl: -20s">S</span>
+        <span style="left: 80%; --s: 36px; --d: 24s; --dl: -2s">⌫</span>
+        <span style="left: 90%; --s: 28px; --d: 32s; --dl: -26s">K</span>
+      </div>
     </div>
-  </div>
-  <div id="fx" aria-hidden="true"></div>
+    <div id="fx" aria-hidden="true"></div>
 
-  <main class="wrap" dir="rtl">
-    <header class="hero">
-      <div class="logo-wrap">
-        <div class="logo-float">
-          <img src="assets/logo.png" alt="Backspace" width="200" height="94" />
-          <span class="sheen" aria-hidden="true"></span>
-        </div>
-      </div>
-
-      <div class="progress" id="progress" aria-label="خطوات الدفع">
-        <span class="st on" id="st1"><b>1</b>اختار الوسيلة</span>
-        <span class="bar" aria-hidden="true"></span>
-        <span class="st" id="st2"><b>2</b>حوّل وابعت</span>
-      </div>
-
-      <h1>
-        <span id="typed">اختار طريقة الدفع</span><span class="caret" aria-hidden="true"></span>
-      </h1>
-      <p class="sub">حوّل المبلغ وابعتلنا صورة التحويل على واتساب</p>
-    </header>
-
-    <aside class="review" id="review" aria-label="قيّمنا على جوجل">
-      <div class="rv-top">
-        <span class="g-logo" aria-hidden="true"><svg viewBox="0 0 48 48">
-            <path fill="#FFC107"
-              d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z" />
-            <path fill="#FF3D00"
-              d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z" />
-            <path fill="#4CAF50"
-              d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2A12 12 0 0 1 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z" />
-            <path fill="#1976D2"
-              d="M43.6 20.5H42V20H24v8h11.3a12 12 0 0 1-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z" />
-          </svg></span>
-        <div class="rv-txt">
-          <b>عجبتك القعدة في Backspace؟</b><small>قيّمنا على جوجل في ثانية. اختياري خالص</small>
-        </div>
-        <button class="rv-x" id="rv-close" type="button" aria-label="إخفاء التقييم">
-          ×
-        </button>
-      </div>
-      <a class="rv-stars" id="rv-go"
-        href="https://search.google.com/local/writereview?placeid=ChIJ82aVLUzJ9xQRTrHJvd4MQ3M" target="_blank"
-        rel="noopener" aria-label="قيّمنا على جوجل">
-        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-        <em>اضغط وقيّم</em>
-      </a>
-    </aside>
-
-    <section class="methods" aria-label="طريقة الدفع">
-      <button class="key method" id="m-vodafone" data-m="vodafone" aria-pressed="false">
-        <span class="m-ico v">VF</span>
-        <span class="m-txt"><b>فودافون كاش</b><small>تحويل من أي محفظة أو إنستاباي</small></span>
-        <span class="m-go" aria-hidden="true">←</span>
-      </button>
-      <div class="key method soon" id="m-instapay" aria-disabled="true">
-        <span class="stamp">قريبًا</span>
-        <span class="m-ico i">IP</span>
-        <span class="m-txt"><b>إنستاباي</b><small>هيتضاف قريب جدًا ✨</small></span>
-        <span class="m-go lock" aria-hidden="true">⏳</span>
-      </div>
-    </section>
-
-    <section class="panel" id="details" hidden aria-live="polite">
-      <div class="panel-head">
-        <div class="ph-title">
-          <span class="dot"></span>
-          <h2 id="d-title">فودافون كاش</h2>
-        </div>
-        <button class="key back" id="change" type="button">
-          <span aria-hidden="true">⌫</span> رجوع
-        </button>
-      </div>
-
-      <div class="panel-body">
-        <div class="number-block">
-          <div class="nb-top">
-            <span class="label" id="d-numlabel">رقم المحفظة</span>
-            <button class="key copy" id="copy" type="button">
-              نسخ الرقم
-            </button>
+    <main class="wrap" dir="rtl">
+      <header class="hero">
+        <div class="logo-wrap">
+          <div class="logo-float">
+            <img
+              src="assets/logo.png"
+              alt="Backspace"
+              width="200"
+              height="94"
+            />
+            <span class="sheen" aria-hidden="true"></span>
           </div>
-          <div class="digits" id="d-num"></div>
         </div>
 
-        <div class="name-row">
-          <span class="label">اسم المستفيد</span>
-          <span class="name" id="d-name"></span>
+        <div class="progress" id="progress" aria-label="خطوات الدفع">
+          <span class="st on" id="st1"><b>1</b>اختار الوسيلة</span>
+          <span class="bar" aria-hidden="true"></span>
+          <span class="st" id="st2"><b>2</b>حوّل وابعت</span>
         </div>
 
-        <div class="block">
-          <span class="label">خطوات الدفع</span>
-          <ol class="steps" id="d-steps"></ol>
-        </div>
+        <h1>
+          <span id="typed">اختار طريقة الدفع</span
+          ><span class="caret" aria-hidden="true"></span>
+        </h1>
+        <p class="sub">حوّل المبلغ وابعتلنا صورة التحويل على واتساب</p>
+      </header>
 
-        <form id="pay" class="form" novalidate>
-          <div class="field">
-            <label for="amount">المبلغ المحوّل</label>
-            <div class="suffix">
-              <input id="amount" inputmode="decimal" placeholder="0" autocomplete="off" /><em>ج.م</em>
-            </div>
-            <span class="err" id="amount-err"></span>
+      <aside class="review" id="review" aria-label="قيّمنا على جوجل">
+        <div class="rv-top">
+          <span class="g-logo" aria-hidden="true"
+            ><svg viewBox="0 0 48 48">
+              <path
+                fill="#FFC107"
+                d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"
+              />
+              <path
+                fill="#FF3D00"
+                d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"
+              />
+              <path
+                fill="#4CAF50"
+                d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2A12 12 0 0 1 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"
+              />
+              <path
+                fill="#1976D2"
+                d="M43.6 20.5H42V20H24v8h11.3a12 12 0 0 1-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"
+              /></svg
+          ></span>
+          <div class="rv-txt">
+            <b>عجبتك القعدة في Backspace؟</b
+            ><small>قيّمنا على جوجل في ثانية. اختياري خالص</small>
           </div>
+          <button
+            class="rv-x"
+            id="rv-close"
+            type="button"
+            aria-label="إخفاء التقييم"
+          >
+            ×
+          </button>
+        </div>
+        <a
+          class="rv-stars"
+          id="rv-go"
+          href="https://search.google.com/local/writereview?placeid=ChIJ82aVLUzJ9xQRTrHJvd4MQ3M"
+          target="_blank"
+          rel="noopener"
+          aria-label="قيّمنا على جوجل"
+        >
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          <em>اضغط وقيّم</em>
+        </a>
+      </aside>
 
-          <div class="field">
-            <span class="flabel" id="src-label">حوّلت منين؟</span>
-            <div class="sources" role="radiogroup" aria-labelledby="src-label">
-              <button type="button" class="key src" role="radio" aria-checked="false" data-src="vodafone">
-                <i style="--c: #e60000"></i>فودافون كاش
-              </button>
-              <button type="button" class="key src" role="radio" aria-checked="false" data-src="etisalat">
-                <i style="--c: #7ab800"></i>اتصالات كاش
-              </button>
-              <button type="button" class="key src" role="radio" aria-checked="false" data-src="orange">
-                <i style="--c: #ff7900"></i>أورانج كاش
-              </button>
-              <button type="button" class="key src" role="radio" aria-checked="false" data-src="instapay">
-                <i style="--c: #9b5cd0"></i>إنستاباي
+      <section class="methods" aria-label="طريقة الدفع">
+        <button
+          class="key method"
+          id="m-vodafone"
+          data-m="vodafone"
+          aria-pressed="false"
+        >
+          <span class="m-ico v">VF</span>
+          <span class="m-txt"
+            ><b>فودافون كاش</b
+            ><small>تحويل من أي محفظة أو إنستاباي</small></span
+          >
+          <span class="m-go" aria-hidden="true">←</span>
+        </button>
+        <div class="key method soon" id="m-instapay" aria-disabled="true">
+          <span class="stamp">قريبًا</span>
+          <span class="m-ico i">IP</span>
+          <span class="m-txt"
+            ><b>إنستاباي</b><small>هيتضاف قريب جدًا ✨</small></span
+          >
+          <span class="m-go lock" aria-hidden="true">⏳</span>
+        </div>
+      </section>
+
+      <section class="panel" id="details" hidden aria-live="polite">
+        <div class="panel-head">
+          <div class="ph-title">
+            <span class="dot"></span>
+            <h2 id="d-title">فودافون كاش</h2>
+          </div>
+          <button class="key back" id="change" type="button">
+            <span aria-hidden="true">⌫</span> رجوع
+          </button>
+        </div>
+
+        <div class="panel-body">
+          <div class="number-block">
+            <div class="nb-top">
+              <span class="label" id="d-numlabel">رقم المحفظة</span>
+              <button class="key copy" id="copy" type="button">
+                نسخ الرقم
               </button>
             </div>
-            <span class="err" id="src-err"></span>
+            <div class="digits" id="d-num"></div>
           </div>
 
-          <!-- Optional wallet dialing helper; payment confirmation stays in the carrier interface. -->
+          <div class="name-row">
+            <span class="label">اسم المستفيد</span>
+            <span class="name" id="d-name"></span>
+          </div>
 
-          <!-- Quick Transfer -->
-          <div class="field" id="wallet-choice" hidden>
-            <div class="wallet-box">
-              <div class="wallet-heading">⚡ تحب تحوّل بشكل أسرع؟</div>
-              <p class="note">
-                نقدر نفتحلك كود التحويل على موبايلك مباشرة.
-                أو تكمّل بالطريقة العادية.
-              </p>
+          <div class="block">
+            <span class="label">خطوات الدفع</span>
+            <ol class="steps" id="d-steps"></ol>
+          </div>
 
-              <div class="wallet-actions">
-                <button class="key wallet-yes" type="button" id="wallet-yes">
-                  ✓ موافق
+          <form id="pay" class="form" novalidate>
+            <div class="field">
+              <label for="amount">المبلغ المحوّل</label>
+              <div class="suffix">
+                <input
+                  id="amount"
+                  inputmode="decimal"
+                  placeholder="0"
+                  autocomplete="off"
+                /><em>ج.م</em>
+              </div>
+              <span class="err" id="amount-err"></span>
+            </div>
+
+            <div class="field">
+              <span class="flabel" id="src-label">حوّلت منين؟</span>
+              <div
+                class="sources"
+                role="radiogroup"
+                aria-labelledby="src-label"
+              >
+                <button
+                  type="button"
+                  class="key src"
+                  role="radio"
+                  aria-checked="false"
+                  data-src="vodafone"
+                >
+                  <i style="--c: #e60000"></i>فودافون كاش
                 </button>
-                <button class="key wallet-no" type="button" id="wallet-no">
-                  مش دلوقتي
+                <button
+                  type="button"
+                  class="key src"
+                  role="radio"
+                  aria-checked="false"
+                  data-src="etisalat"
+                >
+                  <i style="--c: #7ab800"></i>اتصالات كاش
+                </button>
+                <button
+                  type="button"
+                  class="key src"
+                  role="radio"
+                  aria-checked="false"
+                  data-src="orange"
+                >
+                  <i style="--c: #ff7900"></i>أورانج كاش
+                </button>
+                <button
+                  type="button"
+                  class="key src"
+                  role="radio"
+                  aria-checked="false"
+                  data-src="instapay"
+                >
+                  <i style="--c: #9b5cd0"></i>إنستاباي
                 </button>
               </div>
+              <span class="err" id="src-err"></span>
             </div>
-          </div>
 
-          <div class="field" id="wallet-dial" hidden>
-            <div class="wallet-box">
-              <div class="wallet-heading">⚡ التحويل السريع</div>
-              <p class="note" id="dial-info"></p>
-              <div id="dial-code" dir="ltr" class="wallet-code"></div>
-              <p class="note" id="dial-details"></p>
+            <!-- Optional wallet dialing helper; payment confirmation stays in the carrier interface. -->
 
-              <a class="key wallet-open" id="dial-open" href="#">
-                افتح كود التحويل على الموبايل
-              </a>
+            <!-- Quick Transfer -->
+            <div class="field" id="wallet-choice" hidden>
+              <div class="wallet-box">
+                <div class="wallet-heading">⚡ تحب تحوّل بشكل أسرع؟</div>
+                <p class="note">
+                  نقدر نفتحلك كود التحويل على موبايلك مباشرة. أو تكمّل بالطريقة
+                  العادية.
+                </p>
 
-              <button class="wallet-cancel" id="wallet-cancel" type="button">
-                ✕ إلغاء التحويل السريع
+                <div class="wallet-actions">
+                  <button class="key wallet-yes" type="button" id="wallet-yes">
+                    ✓ موافق
+                  </button>
+                  <button class="key wallet-no" type="button" id="wallet-no">
+                    مش دلوقتي
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="field" id="wallet-dial" hidden>
+              <div class="wallet-box">
+                <div class="wallet-heading">⚡ التحويل السريع</div>
+                <p class="note" id="dial-info"></p>
+                <div id="dial-code" dir="ltr" class="wallet-code"></div>
+                <p class="note" id="dial-details"></p>
+
+                <a class="key wallet-open" id="dial-open" href="#">
+                  افتح كود التحويل على الموبايل
+                </a>
+
+                <button class="wallet-cancel" id="wallet-cancel" type="button">
+                  ✕ إلغاء التحويل السريع
+                </button>
+
+                <p class="note">
+                  الرقم السري بيتكتب في شاشة شركة المحمول فقط. راجع البيانات
+                  وأكّد بنفسك.
+                </p>
+              </div>
+            </div>
+
+            <!-- Reopen the optional quick-transfer offer after declining or canceling -->
+            <div class="field" id="wallet-reopen" hidden>
+              <button
+                class="key wallet-reopen-button"
+                id="wallet-reopen-button"
+                type="button"
+              >
+                ⚡ إظهار خيار التحويل السريع
               </button>
-
-              <p class="note">
-                الرقم السري بيتكتب في شاشة شركة المحمول فقط.
-                راجع البيانات وأكّد بنفسك.
-              </p>
             </div>
-          </div>
 
+            <div class="field" id="sender-wrap" hidden>
+              <label for="sender" id="sender-label"
+                >رقم المحفظة اللي حوّلت منها</label
+              >
+              <input
+                id="sender"
+                inputmode="tel"
+                placeholder="01xxxxxxxxx"
+                autocomplete="off"
+              />
+              <span class="hint" id="sender-hint"></span>
+              <span class="err" id="sender-err"></span>
+            </div>
 
-          <div class="field" id="sender-wrap" hidden>
-            <label for="sender" id="sender-label">رقم المحفظة اللي حوّلت منها</label>
-            <input id="sender" inputmode="tel" placeholder="01xxxxxxxxx" autocomplete="off" />
-            <span class="hint" id="sender-hint"></span>
-            <span class="err" id="sender-err"></span>
-          </div>
+            <div class="wa-wrap">
+              <a class="key wa" id="wa" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"
+                  />
+                </svg>
+                ابعت صورة التحويل على واتساب
+              </a>
+            </div>
+            <p class="note">
+              هيفتح واتساب برسالة جاهزة فيها بياناتك. أرفق صورة التحويل وابعت.
+            </p>
+          </form>
+        </div>
+      </section>
 
-          <div class="wa-wrap">
-            <a class="key wa" id="wa" href="#" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path
-                  d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z" />
-              </svg>
-              ابعت صورة التحويل على واتساب
-            </a>
-          </div>
-          <p class="note">
-            هيفتح واتساب برسالة جاهزة فيها بياناتك. أرفق صورة التحويل وابعت.
-          </p>
-        </form>
-      </div>
-    </section>
-
-    <footer>
-      <div class="socials">
-        <a class="key soc" href="https://www.facebook.com/BackspaceTanta/" target="_blank" rel="noopener"
-          aria-label="Facebook"><svg viewBox="0 0 24 24">
-            <path
-              d="M13.5 22v-8h2.7l.4-3.2h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V4.4a22 22 0 0 0-2.5-.1c-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V14h2.7v8z" />
-          </svg></a>
-        <a class="key soc" href="https://www.instagram.com/back.spacetanta" target="_blank" rel="noopener"
-          aria-label="Instagram"><svg viewBox="0 0 24 24">
-            <path
-              d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM21 8c0-1.6-.4-3-1.6-4.2S16.8 2.1 15.2 2H8.8C7.2 2.1 5.8 2.5 4.6 3.7S3 6.3 3 8v8c0 1.6.4 3 1.6 4.2s2.6 1.6 4.2 1.7h6.4c1.6-.1 3-.5 4.2-1.7S21 17.6 21 16zm-2.2 10.1a2.9 2.9 0 0 1-1.6 1.6c-1.1.4-3.8.3-5.2.3s-4 .1-5.2-.3a2.9 2.9 0 0 1-1.6-1.6c-.4-1.1-.3-3.8-.3-5.1s-.1-4 .3-5.2a2.9 2.9 0 0 1 1.6-1.6C8 5.8 10.7 5.9 12 5.9s4-.1 5.2.3a2.9 2.9 0 0 1 1.6 1.6c.4 1.1.3 3.8.3 5.2s.1 4-.3 5.1z" />
-          </svg></a>
-        <a class="key soc" href="https://www.tiktok.com/@backspacetanta?_r=1&_t=ZS-9AvtHTPEDW0" target="_blank"
-          rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24">
-            <path
-              d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.8a5.7 5.7 0 1 0 4.9 5.6V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z" />
-          </svg></a>
-        <a class="key soc" href="https://wa.me/201050900203" target="_blank" rel="noopener" aria-label="WhatsApp"><svg
-            viewBox="0 0 24 24">
-            <path
-              d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z" />
-          </svg></a>
-      </div>
-      <a class="site" href="https://www.backspace-eg.com/" target="_blank" rel="noopener">www.backspace-eg.com</a>
-      <div class="powered">
-        powered by
-        <a href="https://tapko.link" target="_blank" rel="noopener">tapko</a>
-      </div>
-    </footer>
-  </main>
-  <!--BODY-END-->
-  <script src="script.js"></script>
-</body>
-
+      <footer>
+        <div class="socials">
+          <a
+            class="key soc"
+            href="https://www.facebook.com/BackspaceTanta/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Facebook"
+            ><svg viewBox="0 0 24 24">
+              <path
+                d="M13.5 22v-8h2.7l.4-3.2h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V4.4a22 22 0 0 0-2.5-.1c-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V14h2.7v8z"
+              /></svg
+          ></a>
+          <a
+            class="key soc"
+            href="https://www.instagram.com/back.spacetanta"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+            ><svg viewBox="0 0 24 24">
+              <path
+                d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm6-7.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0zM21 8c0-1.6-.4-3-1.6-4.2S16.8 2.1 15.2 2H8.8C7.2 2.1 5.8 2.5 4.6 3.7S3 6.3 3 8v8c0 1.6.4 3 1.6 4.2s2.6 1.6 4.2 1.7h6.4c1.6-.1 3-.5 4.2-1.7S21 17.6 21 16zm-2.2 10.1a2.9 2.9 0 0 1-1.6 1.6c-1.1.4-3.8.3-5.2.3s-4 .1-5.2-.3a2.9 2.9 0 0 1-1.6-1.6c-.4-1.1-.3-3.8-.3-5.1s-.1-4 .3-5.2a2.9 2.9 0 0 1 1.6-1.6C8 5.8 10.7 5.9 12 5.9s4-.1 5.2.3a2.9 2.9 0 0 1 1.6 1.6c.4 1.1.3 3.8.3 5.2s.1 4-.3 5.1z"
+              /></svg
+          ></a>
+          <a
+            class="key soc"
+            href="https://www.tiktok.com/@backspacetanta?_r=1&_t=ZS-9AvtHTPEDW0"
+            target="_blank"
+            rel="noopener"
+            aria-label="TikTok"
+            ><svg viewBox="0 0 24 24">
+              <path
+                d="M16.6 5.8A4.3 4.3 0 0 1 15.5 3h-3.1v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V9.8a5.7 5.7 0 1 0 4.9 5.6V9.1a7.4 7.4 0 0 0 4.3 1.4V7.4a4.3 4.3 0 0 1-3.2-1.6z"
+              /></svg
+          ></a>
+          <a
+            class="key soc"
+            href="https://wa.me/201050900203"
+            target="_blank"
+            rel="noopener"
+            aria-label="WhatsApp"
+            ><svg viewBox="0 0 24 24">
+              <path
+                d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"
+              /></svg
+          ></a>
+        </div>
+        <a
+          class="site"
+          href="https://www.backspace-eg.com/"
+          target="_blank"
+          rel="noopener"
+          >www.backspace-eg.com</a
+        >
+        <div class="powered">
+          powered by
+          <a href="https://tapko.link" target="_blank" rel="noopener">tapko</a>
+        </div>
+      </footer>
+    </main>
+    <!--BODY-END-->
+    <script src="script.js?v=3"></script>
+  </body>
 </html>
